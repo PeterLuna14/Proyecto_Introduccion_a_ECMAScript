@@ -1,22 +1,24 @@
 // viajes.js
-import { viajes, precios } from './data.js';
+import { destinos, precios } from "./data.js";
 
-// Registrar destino
 export const registrarDestino = (destino, fecha, transporte) => {
-viajes.push({ destino, fecha, transporte });
+const costo = calcularCosto(destino, transporte);
+const nuevoViaje = { destino, fecha, transporte, costo };
+destinos.push(nuevoViaje);
 };
 
-// Calcular costo
 export const calcularCosto = (destino, transporte) => {
-const costoDestino = precios.destino[destino] || 0;
+const costoBase = precios.destino[destino] || 0;
 const costoTransporte = precios.transporte[transporte] || 0;
-return costoDestino + costoTransporte;
+return costoBase + costoTransporte;
 };
 
-// Mostrar itinerario
 export const mostrarItinerario = () => {
-viajes.forEach(viaje => {
-    const total = calcularCosto(viaje.destino, viaje.transporte);
-    console.log(`Destino: ${viaje.destino}, Fecha: ${viaje.fecha}, Transporte: ${viaje.transporte}, Total: $${total}`);
+destinos.forEach(({ destino, fecha, transporte, costo }) => {
+    console.log(`Destino: ${destino}`);
+    console.log(`Fecha: ${fecha}`);
+    console.log(`Transporte: ${transporte}`);
+    console.log(`Costo: $${costo}`);
+    console.log("---------------------------");
 });
 };

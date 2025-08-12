@@ -1,15 +1,14 @@
 // data.js
-export const viajes = []; // Lista de viajes registrados
+export const destinos = [];
 
 export const precios = {
 destino: {
-    "París": 1200,
-    "Nueva York": 1000,
-    "Tokio": 1500
+    Paris: 500,
+    Londres: 400,
+    "New York": 600,
 },
 transporte: {
-    "Avión": 500,
-    "Tren": 200,
-    "Bus": 100
-}
+    Avión: 200,
+    Tren: 100,
+},
 };
